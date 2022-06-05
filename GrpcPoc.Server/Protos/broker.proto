@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcPoc.Server";
+
+package broker;
+
+service ResourceTokenBroker {
+	rpc GetResourceToken (ResourceTokenRequest) returns (ResourceTokenReply);
+	rpc GetBenchmarkTextBack (BenchmarkTextRequest) returns (BenchmarkTextReply);
+}
+
+message ResourceTokenRequest {
+	string database = 1;
+	string collection = 2;
+}
+
+message ResourceTokenReply {
+	string token = 1;
+}
+
+message BenchmarkTextRequest {
+	string text = 1;
+}
+
+message BenchmarkTextReply {
+	string text = 1;
+}

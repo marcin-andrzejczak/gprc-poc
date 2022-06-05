@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  grpcpoc.server:
+    image: ${DOCKER_REGISTRY-}grpcpocserver
+    build:
+      context: .
+      dockerfile: GrpcPoc.Server/Dockerfile
+
+  grpcpoc.client:
+    image: ${DOCKER_REGISTRY-}grpcpocclient
+    build:
+      context: .
+      dockerfile: GrpcPoc.Client/Dockerfile
+
