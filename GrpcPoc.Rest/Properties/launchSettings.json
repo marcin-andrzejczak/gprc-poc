@@ -4,19 +4,19 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:33531",
-      "sslPort": 44349
+      "applicationUrl": "http://localhost:30173",
+      "sslPort": 44344
     }
   },
   "profiles": {
-    "GrpcPoc.Client": {
+    "GrpcPoc.Rest": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5000;https://localhost:5001",
+      "applicationUrl": "http://localhost:5400;https://localhost:5443",
       "dotnetRunMessages": true
     },
     "IIS Express": {

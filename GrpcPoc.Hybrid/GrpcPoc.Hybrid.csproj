@@ -4,21 +4,20 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>1e79a11c-81cd-44ea-aa11-c1fc143fcccf</UserSecretsId>
+    <UserSecretsId>96b0c496-7609-404b-a938-a3a1888cf5d1</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.46.0" />
-    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.27.2" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    <Protobuf Include="Protos\hybrid-broker.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\GrpcPoc.Hybrid\Protos\hybrid-broker.proto" GrpcServices="Client" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.46.0" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.27.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
   </ItemGroup>
 
 </Project>

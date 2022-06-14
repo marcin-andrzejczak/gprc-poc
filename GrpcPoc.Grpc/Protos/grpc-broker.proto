@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcPoc.Grpc";
+
+package grpc.broker;
+
+service GrpcResourceTokenBroker {
+	rpc GetBenchmarkTextBack (GrpcBenchmarkTextRequest) returns (GrpcBenchmarkTextReply);
+}
+
+message GrpcBenchmarkTextRequest {
+	string text = 1;
+}
+
+message GrpcBenchmarkTextReply {
+	string text = 1;
+}

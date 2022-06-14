@@ -1,4 +1,4 @@
-using static GrpcPoc.Server.ResourceTokenBroker;
+using static GrpcPoc.Hybrid.HybridResourceTokenBroker;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddGrpcClient<ResourceTokenBrokerClient>(configureClient =>
+builder.Services.AddGrpcClient<HybridResourceTokenBrokerClient>(configureClient =>
 {
     var url = builder.Configuration["ServerApi:GrpcBaseUrl"];
     configureClient.Address = new Uri(url);

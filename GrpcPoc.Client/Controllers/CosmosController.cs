@@ -1,11 +1,11 @@
 using Grpc.Core;
 using GrpcPoc.Client.Models;
-using GrpcPoc.Server;
+using GrpcPoc.Hybrid;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Cosmos;
 using System.Diagnostics;
 using System.Text;
-using static GrpcPoc.Server.ResourceTokenBroker;
+using static GrpcPoc.Hybrid.HybridResourceTokenBroker;
 
 namespace GrpcPoc.Client.Controllers
 {
@@ -17,12 +17,12 @@ namespace GrpcPoc.Client.Controllers
         private const string CollectionName = "People";
 
         private readonly IConfiguration _configuration;
-        private readonly ResourceTokenBrokerClient _brokerClient;
+        private readonly HybridResourceTokenBrokerClient _brokerClient;
         private readonly IHttpClientFactory _httpFactory;
 
         public CosmosController(
             IConfiguration configuration,
-            ResourceTokenBrokerClient brokerClient,
+            HybridResourceTokenBrokerClient brokerClient,
             IHttpClientFactory httpFactory)
         {
             _configuration = configuration;
@@ -36,7 +36,7 @@ namespace GrpcPoc.Client.Controllers
             var stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            var request = new ResourceTokenRequest
+            var request = new HybridResourceTokenRequest
             {
                 Database = DatabaseName,
                 Collection = CollectionName
@@ -60,7 +60,7 @@ namespace GrpcPoc.Client.Controllers
             stopwatch.Start();
 
             var url = string.Format("api/cosmos/token?database={0}&collection={1}", DatabaseName, CollectionName);
-            var tokenResponse = await client.GetFromJsonAsync<ResourceTokenReply>(url, cancellationToken);
+            var tokenResponse = await client.GetFromJsonAsync<HybridResourceTokenReply>(url, cancellationToken);
             var tokenFetchTime = stopwatch.ElapsedMilliseconds;
 
             stopwatch.Restart();

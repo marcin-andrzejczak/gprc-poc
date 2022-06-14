@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcPoc.Hybrid";
+
+package hybrid.broker;
+
+service HybridResourceTokenBroker {
+	rpc GetResourceToken (HybridResourceTokenRequest) returns (HybridResourceTokenReply);
+	rpc GetBenchmarkTextBack (HybridBenchmarkTextRequest) returns (HybridBenchmarkTextReply);
+}
+
+message HybridResourceTokenRequest {
+	string database = 1;
+	string collection = 2;
+}
+
+message HybridResourceTokenReply {
+	string token = 1;
+}
+
+message HybridBenchmarkTextRequest {
+	string text = 1;
+}
+
+message HybridBenchmarkTextReply {
+	string text = 1;
+}
